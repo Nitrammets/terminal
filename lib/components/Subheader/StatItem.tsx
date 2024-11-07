@@ -5,7 +5,12 @@ interface StatItemProps {
   suffix?: string;
 }
 
-const StatItem = ({ label, value, isUnderlined, suffix }: StatItemProps) => (
+export const StatItem = ({
+  label,
+  value,
+  isUnderlined,
+  suffix,
+}: StatItemProps) => (
   <div className="text-disabledText text-[12px] flex-shrink-0 min-w-max">
     <div className={`text-nowrap ${isUnderlined ? "underline" : ""}`}>
       {label}
@@ -14,5 +19,3 @@ const StatItem = ({ label, value, isUnderlined, suffix }: StatItemProps) => (
     <div className="text-primaryText text-[12px]">{value}</div>
   </div>
 );
-
-export default StatItem;

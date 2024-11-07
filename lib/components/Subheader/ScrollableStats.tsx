@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
-import ScrollButton from "./ScrollButton";
-import StatItem from "./StatItem";
+import { ScrollButton } from "./ScrollButton";
+import { StatItem } from "./StatItem";
 
 // ScrollableStats.tsx
 interface ScrollableStatsProps {
@@ -19,7 +19,7 @@ interface ScrollableStatsProps {
   };
 }
 
-const ScrollableStats = ({
+export const ScrollableStats = ({
   baseCurrency,
   quoteCurrency,
   stats,
@@ -101,5 +101,3 @@ const ScrollableStats = ({
     </div>
   );
 };
-
-export default ScrollableStats;

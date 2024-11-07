@@ -70,6 +70,7 @@ function App() {
           <Subheader baseCurrency="BTC" quoteCurrency="USDT" />
         </div>
       </ResponsiveGridLayout>
+      <Subheader baseCurrency="BTC" quoteCurrency="USDT" />
     </>
   );
 }

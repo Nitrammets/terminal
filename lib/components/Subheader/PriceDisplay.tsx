@@ -4,7 +4,7 @@ interface PriceDisplayProps {
   changePercentage: number;
 }
 
-const PriceDisplay = ({
+export const PriceDisplay = ({
   price,
   change,
   changePercentage,
@@ -19,5 +19,3 @@ const PriceDisplay = ({
     </div>
   </div>
 );
-
-export default PriceDisplay;

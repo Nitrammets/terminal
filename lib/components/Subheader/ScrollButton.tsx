@@ -5,7 +5,7 @@ interface ScrollButtonProps {
   onClick: () => void;
 }
 
-const ScrollButton = ({ direction, onClick }: ScrollButtonProps) => {
+export const ScrollButton = ({ direction, onClick }: ScrollButtonProps) => {
   const Icon = direction === "left" ? ChevronLeft : ChevronRight;
   return (
     <button
@@ -16,5 +16,3 @@ const ScrollButton = ({ direction, onClick }: ScrollButtonProps) => {
     </button>
   );
 };
-
-export default ScrollButton;

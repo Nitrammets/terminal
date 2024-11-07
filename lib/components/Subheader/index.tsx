@@ -1,11 +1,10 @@
-import PriceDisplay from "./PriceDisplay";
-import ScrollableStats from "./ScrollableStats";
+import { PriceDisplay } from "./PriceDisplay";
+import { ScrollableStats } from "./ScrollableStats";
 
 export interface SubheaderProps {
   baseCurrency: string;
   quoteCurrency: string;
 }
-
 export function Subheader({ baseCurrency, quoteCurrency }: SubheaderProps) {
   const stats = {
     mark: 75885.0,

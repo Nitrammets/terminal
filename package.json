@@ -1,21 +1,28 @@
 {
-  "name": "terminal",
-  "private": true,
+  "name": "@bfunded/terminal",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/lib/main.d.ts",
+      "default": "./dist/main.js"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc --p ./tsconfig-build.json --noEmit true && vite build",
+    "build": "tsc -b ./tsconfig.lib.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
+    "lucide-react": "^0.454.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -42,8 +49,5 @@
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10",
     "vite-plugin-dts": "^4.3.0"
-  },
-  "dependencies": {
-    "lucide-react": "^0.454.0"
   }
 }
