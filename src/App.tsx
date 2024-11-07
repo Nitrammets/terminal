@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useMemo } from "react";
+import { Responsive, WidthProvider } from "react-grid-layout";
+import { Subheader } from "../lib/main";
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
+
+const UIBreakpoints = {
+  lg: 1200,
+  md: 996,
+  sm: 768,
+  xs: 480,
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const layouts = {
+    lg: [
+      {
+        i: "subheader",
+        x: 0,
+        y: 2,
+        w: 12,
+        h: 2,
+      },
+    ],
+    md: [
+      {
+        i: "subheader",
+        x: 0,
+        y: 2,
+        w: 10,
+        h: 2,
+      },
+    ],
+    sm: [
+      {
+        i: "subheader",
+        x: 0,
+        y: 2,
+        w: 6,
+        h: 2,
+      },
+    ],
+    xs: [
+      {
+        i: "subheader",
+        x: 0,
+        y: 2,
+        w: 4,
+        h: 2,
+      },
+    ],
+  };
+
+  const ResponsiveGridLayout = useMemo(() => WidthProvider(Responsive), []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ResponsiveGridLayout
+        className="layout"
+        rowHeight={30}
+        compactType={"vertical"}
+        containerPadding={[0, 0]}
+        margin={[0, 0]}
+        breakpoints={UIBreakpoints}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4 }}
+        layouts={layouts}
+        draggableHandle=".drag-handle"
+      >
+        <div key="subheader" className="">
+          <Subheader baseCurrency="BTC" quoteCurrency="USDT" />
+        </div>
+      </ResponsiveGridLayout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
