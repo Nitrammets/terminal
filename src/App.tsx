@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
-import { Subheader } from "../lib/main";
+import { Subheader } from "../lib/components/Subheader";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 

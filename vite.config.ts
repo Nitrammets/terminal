@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
+import tailwindcss from "tailwindcss";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,9 +14,14 @@ export default defineConfig({
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
   ],
+  css: {
+    postcss: {
+      plugins: [tailwindcss],
+    },
+  },
   build: {
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "lucide-react"],
+      external: ["react", "react/jsx-runtime", "lucide-react", "tailwindcss"],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob
@@ -32,6 +38,9 @@ export default defineConfig({
           ])
       ),
       output: {
+        globals: {
+          tailwindcss: "tailwindcss",
+        },
         // Prevent generating JS files in lib folder
         preserveModules: true,
         preserveModulesRoot: "src",

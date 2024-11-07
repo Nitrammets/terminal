@@ -6,6 +6,7 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "exports": {
+    "./dist/style.css": "./dist/style.css",
     ".": {
       "types": "./dist/lib/main.d.ts",
       "default": "./dist/main.js"

@@ -11,7 +11,7 @@ export const StatItem = ({
   isUnderlined,
   suffix,
 }: StatItemProps) => (
-  <div className="text-disabledText text-[12px] flex-shrink-0 min-w-max">
+  <div className="text-disabledText text-[12px] flex-shrink-0 min-w-max text-left">
     <div className={`text-nowrap ${isUnderlined ? "underline" : ""}`}>
       {label}
       {suffix && <span>({suffix})</span>}
