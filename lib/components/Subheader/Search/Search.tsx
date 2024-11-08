@@ -1,9 +1,5 @@
 import { Search as SearchIcon } from "lucide-react";
-import useSearchStore, {
-  useSearchTerm,
-  useSearchActions,
-  useSelectedSymbol,
-} from "./stores/searchStore";
+import { useSearchTerm, useSearchActions } from "./stores/searchStore";
 
 const items = [
   {
