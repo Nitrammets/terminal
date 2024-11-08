@@ -65,9 +65,9 @@ export const Search = () => {
     item.ticker.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <div className="w-[480px] min-h-[600px] max-h-[100vh] bg-cardBg rounded-b-[8px] shadow-lg z-50">
+    <div className="w-[480px] max-h-[100vh] bg-cardBg rounded-b-[8px] shadow-lg z-50">
       {/* Search Bar */}
-      <div className="p-4 border-b border-line">
+      <div className="p-3 border-b border-line">
         <div className="relative flex items-center w-full border-[1px] border-inputLine rounded-lg transition-all hover:border-primaryText focus-within:border-primaryText">
           <div className="absolute left-3 text-tertiaryText">
             <SearchIcon size={16} />
@@ -83,7 +83,7 @@ export const Search = () => {
           />
         </div>
       </div>
-      <div className="pt-4 pb-2 min-w-[200px]">
+      <div className="pt-2 pb-2 min-w-[200px]">
         <div className="mt-3 max-h-[400px] overflow-y-auto">
           {/* Headers */}
           <div className="grid grid-cols-4 gap-4 mb-2 text-tertiaryText px-2 ">
