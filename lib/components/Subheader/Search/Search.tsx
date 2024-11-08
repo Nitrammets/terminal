@@ -50,6 +50,63 @@ const items = [
     h24Change: "+2.3%",
     fundingRate: "0.002%",
   },
+  {
+    id: 7,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
+  {
+    id: 8,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
+  {
+    id: 9,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
+  {
+    id: 10,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
+
+  {
+    id: 11,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
+  {
+    id: 12,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
+  {
+    id: 13,
+    ticker: "1000PEPEUSDC",
+    volume: "26.4M",
+    lastPrice: "0.0000007212",
+    h24Change: "+2.3%",
+    fundingRate: "0.002%",
+  },
 ];
 
 export const Search = () => {
@@ -65,7 +122,7 @@ export const Search = () => {
     item.ticker.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <div className="w-[480px] max-h-[100vh] bg-cardBg rounded-b-[8px] shadow-lg z-50">
+    <div className="w-[480px] max-h-[70vh] bg-cardBg rounded-b-[8px] shadow-lg z-50">
       {/* Search Bar */}
       <div className="p-3 border-b border-line">
         <div className="relative flex items-center w-full border-[1px] border-inputLine rounded-lg transition-all hover:border-primaryText focus-within:border-primaryText">
