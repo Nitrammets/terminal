@@ -18,8 +18,10 @@ function App() {
         i: "subheader",
         x: 0,
         y: 2,
-        w: 12,
+        w: 8,
         h: 2,
+        minH: 2,
+        maxH: 2,
       },
     ],
     md: [
@@ -65,12 +67,17 @@ function App() {
         cols={{ lg: 12, md: 10, sm: 6, xs: 4 }}
         layouts={layouts}
         draggableHandle=".drag-handle"
+        onBreakpointChange={() => {
+          setTimeout(() => {
+            const event = new Event("resize");
+            window.dispatchEvent(event);
+          }, 0);
+        }}
       >
         <div key="subheader" className="">
           <Subheader baseCurrency="BTC" quoteCurrency="USDT" />
         </div>
       </ResponsiveGridLayout>
-      <Subheader baseCurrency="BTC" quoteCurrency="USDT" />
     </>
   );
 }

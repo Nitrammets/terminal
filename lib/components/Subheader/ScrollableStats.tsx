@@ -38,6 +38,20 @@ export const ScrollableStats = ({
   };
 
   useEffect(() => {
+    const resizeObserver = new ResizeObserver(() => {
+      checkScroll();
+    });
+
+    if (scrollContainerRef.current) {
+      resizeObserver.observe(scrollContainerRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     checkScroll();
     window.addEventListener("resize", checkScroll);
     return () => window.removeEventListener("resize", checkScroll);
