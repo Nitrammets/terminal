@@ -3,6 +3,7 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import { Subheader } from "../components/NewTerminal/Subheader";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
+import OrderBook from "../components/NewTerminal/OrderBook/OrderBook";
 
 const UIBreakpoints = {
   lg: 1200,
@@ -18,10 +19,17 @@ function NewTerminal() {
         i: "subheader",
         x: 0,
         y: 2,
-        w: 8,
+        w: 10,
         h: 2,
         minH: 2,
         maxH: 2,
+      },
+      {
+        i: "order-book",
+        x: 10,
+        y: 2,
+        w: 2,
+        h: 12,
       },
     ],
     md: [
@@ -62,7 +70,7 @@ function NewTerminal() {
         rowHeight={30}
         compactType={"vertical"}
         containerPadding={[0, 0]}
-        margin={[0, 0]}
+        margin={[4, 4]}
         breakpoints={UIBreakpoints}
         cols={{ lg: 12, md: 10, sm: 6, xs: 4 }}
         layouts={layouts}
@@ -76,6 +84,9 @@ function NewTerminal() {
       >
         <div key="subheader" className="">
           <Subheader baseCurrency="BTC" quoteCurrency="USDT" />
+        </div>
+        <div key="order-book" className="">
+          <OrderBook />
         </div>
       </ResponsiveGridLayout>
     </>

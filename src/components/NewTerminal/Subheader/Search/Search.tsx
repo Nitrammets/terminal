@@ -1,5 +1,7 @@
 import { Search as SearchIcon } from "lucide-react";
 import { useSearchTerm, useSearchActions } from "./stores/searchStore";
+import { useRef, useState } from "react";
+import type { UIEvent } from "react";
 
 const items = [
   {
@@ -111,6 +113,8 @@ const items = [
 
 export const Search = () => {
   const searchTerm = useSearchTerm();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const { setSearchTerm, setSelectedSymbol, closeSearch } = useSearchActions();
 
   const handleItemClick = (ticker: string) => {
@@ -121,6 +125,11 @@ export const Search = () => {
   const filteredItems = items.filter((item) =>
     item.ticker.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleScroll = (e: UIEvent<HTMLDivElement>) => {
+    setIsScrolled(e.currentTarget.scrollTop > 0);
+  };
+
   return (
     <div className="w-[480px] max-h-[70vh] bg-cardBg rounded-b-[8px] shadow-lg z-50">
       {/* Search Bar */}
@@ -140,20 +149,28 @@ export const Search = () => {
           />
         </div>
       </div>
-      <div className="pt-2 pb-2 min-w-[200px]">
-        <div className="mt-3 max-h-[400px] overflow-y-auto">
-          {/* Headers */}
-          <div className="grid grid-cols-4 gap-4 mb-2 text-tertiaryText px-2 ">
-            <div className="text-xs text-tertiaryText">Symbols/Vol</div>
-            <div className="text-xs text-tertiaryText text-right">
-              Last Price
-            </div>
-            <div className="text-xs text-tertiaryText text-right">24h %</div>
-            <div className="text-xs text-tertiaryText text-right">
-              Funding Rate
-            </div>
+
+      <div className="flex flex-col">
+        {/* Fixed Headers */}
+        <div
+          className={`grid grid-cols-4 gap-4 px-2 py-2 bg-cardBg sticky top-0 z-10 transition-shadow duration-200 ${
+            isScrolled ? "shadow-md" : ""
+          }`}
+        >
+          <div className="text-xs text-tertiaryText">Symbols/Vol</div>
+          <div className="text-xs text-tertiaryText text-right">Last Price</div>
+          <div className="text-xs text-tertiaryText text-right">24h %</div>
+          <div className="text-xs text-tertiaryText text-right">
+            Funding Rate
           </div>
-          {/* Items */}
+        </div>
+
+        {/* Scrollable Items */}
+        <div
+          className="max-h-[400px] overflow-y-auto"
+          ref={scrollRef}
+          onScroll={handleScroll}
+        >
           {filteredItems.map((item) => (
             <div
               onClick={() => handleItemClick(item.ticker)}
@@ -186,3 +203,5 @@ export const Search = () => {
     </div>
   );
 };
+
+export default Search;
