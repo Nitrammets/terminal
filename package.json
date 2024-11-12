@@ -3,24 +3,11 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
-  "exports": {
-    "./dist/style.css": "./dist/style.css",
-    ".": {
-      "types": "./dist/lib/main.d.ts",
-      "default": "./dist/main.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b ./tsconfig.lib.json && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "prepublishOnly": "npm run build"
+    "preview": "vite preview"
   },
   "peerDependencies": {
     "lucide-react": "^0.454.0",
@@ -29,12 +16,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@sylchi/reusable-components": "^0.2.7",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@types/react-grid-layout": "^1.3.5",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
+    "binance": "^2.9.2",
     "eslint": "^9.13.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
@@ -52,6 +41,21 @@
     "vite-plugin-dts": "^4.3.0"
   },
   "dependencies": {
+    "@nanostores/persistent": "^0.10.2",
+    "@nanostores/react": "^0.8.0",
+    "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-popover": "^1.1.2",
+    "@radix-ui/react-scroll-area": "^1.2.0",
+    "@radix-ui/react-slider": "^1.2.1",
+    "@radix-ui/react-tooltip": "^1.1.3",
+    "class-variance-authority": "^0.7.0",
+    "decimal.js": "^10.4.3",
+    "i": "^0.3.7",
+    "react-router-dom": "^6.28.0",
+    "react-toastify": "^10.0.6",
+    "socket.io-client": "^4.8.1",
+    "tailwind-merge": "^2.5.4",
     "zustand": "^5.0.1"
   }
 }
