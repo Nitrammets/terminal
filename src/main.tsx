@@ -8,11 +8,11 @@ import Trade from "./pages/old-terminal.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NewTerminal />,
+    element: <Trade symbol={"BTCUSDT"} user={{}} />,
   },
   {
-    path: "/old",
-    element: <Trade symbol={"BTCUSDT"} user={{}} />,
+    path: "/new",
+    element: <NewTerminal />,
   },
 ]);
 
